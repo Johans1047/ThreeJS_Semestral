@@ -63,9 +63,17 @@ function getDeltaTime() {
 }
 
 function cameraFollowLookAt() {
-    const position = [character.mesh.position.x, character.mesh.position.y + 5, character.mesh.position.z + 10];
-    camera.position.set(...position);
-    camera.lookAt(character.mesh.position);
+    if(character.mesh){
+        const position = [
+            character.mesh.position.x, 
+            character.mesh.position.y + 5, 
+            character.mesh.position.z + 10
+        ];
+        if(camera) {
+            camera.position.set(...position);
+            camera.lookAt(character.mesh.position);
+        }
+    }
 }
 
 function animate() {
