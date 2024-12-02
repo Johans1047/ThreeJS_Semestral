@@ -26,8 +26,8 @@ export default class Cursor {
         document.body.appendChild(this.div);
 
         window.addEventListener("mousemove", (event) => {
-            this.div.style.top = (event.clientY - 32) + "px";
-            this.div.style.left = (event.clientX - 32) + "px";
+            this.div.style.top = (event.clientY - 24) + "px";
+            this.div.style.left = (event.clientX - 16) + "px";
         });
 
     }

@@ -6,8 +6,6 @@ import FullScene from "./src/scenes/FullScene";
 import Character from "./src/character/Character";
 import Cursor from "./src/gui/Cursor";
 
-import FloatingContent from "./src/gui/FloatingContent";
-
 
 /* DOM Element */
 const app = document.getElementById("app");
@@ -54,6 +52,8 @@ document.body.addEventListener("click", () => {
     setupAudio();
     document.body.removeEventListener("click", setupAudio);
 });
+
+setTimeout(() => { document.body.click(); }, 0);
 
 const setupAudio = () => {
     const audio = new THREE.Audio(listener);

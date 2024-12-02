@@ -3,7 +3,6 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 import Controller from "./Controller";
-import Animator from "./Animator";
 
 export default class Character {
 
@@ -26,7 +25,6 @@ export default class Character {
 
                 scene.add(this.mesh);
                 this.controller = new Controller(this.mesh);
-                this.animator = new Animator(this.mesh);
             },
             undefined,
             (error) => { console.error(error); }
