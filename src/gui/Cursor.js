@@ -6,8 +6,11 @@ export default class Cursor {
         boxShadow: "0px 0px 8px 8px #FDE047",
         position: "fixed",
         opacity: "0.4",
-        width: "4rem",
-        height: "4rem"
+        width: "5rem",
+        height: "5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     }
 
     /* public: */

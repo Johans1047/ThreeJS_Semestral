@@ -6,6 +6,9 @@ import FullScene from "./src/scenes/FullScene";
 import Character from "./src/character/Character";
 import Cursor from "./src/gui/Cursor";
 
+import FloatingContent from "./src/gui/FloatingContent";
+
+
 /* DOM Element */
 const app = document.getElementById("app");
 
@@ -43,6 +46,27 @@ scene.add(directional);
 camera.position.set(0, 5, 0);
 camera.lookAt(0, 0, 0);
 
+/* Audio Listener */
+const listener = new THREE.AudioListener();
+camera.add(listener);
+
+document.body.addEventListener("click", () => {
+    setupAudio();
+    document.body.removeEventListener("click", setupAudio);
+});
+
+const setupAudio = () => {
+    const audio = new THREE.Audio(listener);
+    const loader = new THREE.AudioLoader();
+    loader.load("/audio/ambience.mp3", (buffer) => {
+        audio.setBuffer(buffer);
+        audio.setLoop(true);
+        audio.setVolume(1);
+        audio.play();
+    });
+}
+
+
 /* Character */
 const character = new Character(scene);
 
@@ -63,13 +87,13 @@ function getDeltaTime() {
 }
 
 function cameraFollowLookAt() {
-    if(character.mesh){
+    if (character.mesh) {
         const position = [
-            character.mesh.position.x, 
-            character.mesh.position.y + 5, 
+            character.mesh.position.x,
+            character.mesh.position.y + 5,
             character.mesh.position.z + 10
         ];
-        if(camera) {
+        if (camera) {
             camera.position.set(...position);
             camera.lookAt(character.mesh.position);
         }
