@@ -18,4 +18,3 @@ export default class FloatingContent {
         document.body.appendChild(div);
     }
 }
-|
